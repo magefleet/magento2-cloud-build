@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+#MAGENTO_ROOT=${0%/vendor/*}
+# ABsolute path script
+SCRIPT_PATH="$(realpath "$0")"
+# Get root path delete everything after vendor
+MAGENTO_ROOT="${SCRIPT_PATH%/vendor/*}"
+
+
+# Copy magento-vars.php
+cp -R ${MAGENTO_ROOT}/vendor/magefleet/magento2-cloud-build/dist/magento-vars.php ${MAGENTO_ROOT}/magento-vars.php
+# Copy magento-env-yaml
+cp -R ${MAGENTO_ROOT}/vendor/magefleet/magento2-cloud-build/dist/.magento.env.yaml ${MAGENTO_ROOT}/.magento.env.yaml
+# Copy magento-app-yaml
+#cp -R ${MAGENTO_ROOT}/vendor/magefleet/magento2-cloud-build/dist/.magento.app.yaml ${MAGENTO_ROOT}/.magento.app.yaml
+
